@@ -6,7 +6,7 @@ Upon answer choice, the correct choice will be revealed before moving on to the 
 
 Technology used in this project:
 _________________________________________________________________________________________________________________________
-HTML
-CSS
-JavaScript
-jQuery
+* HTML
+* CSS
+* JavaScript
+* jQuery
