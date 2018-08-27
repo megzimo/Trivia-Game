@@ -1,0 +1,15 @@
+body {
+    background-image: url("../images/fidlar_amanda_fotes.jpg");
+    background-size: 75%;
+    background-repeat: no-repeat;
+    background-position-x: center
+}
+
+h1 {
+    color: rgb(245, 245, 245);
+    text-align: center;
+    text-shadow: 0 0 2px #000; /* horizontal-offset vertical-offset 'blur' colour */
+    -moz-text-shadow: 0 0 2px #000;
+    -webkit-text-shadow: 0 0 2px #000;
+}
+
