@@ -28,7 +28,7 @@ $(document).ready(function() {
     // create variables
     let qArray = [];
     let currentQuestion = 0;
-    let userGuess = '';
+    let playerGuess = '';
     let correctAnswer='';
     let timeLeft = 20;
     let counter = 0;
@@ -51,7 +51,7 @@ $(document).ready(function() {
     //         </div>
     //     $(buttonChoices).appendTo('.btn-block').html;
 
-    }); //ENDS button map
+    // }); //ENDS button map
 
     // 'start' button function
 
@@ -59,27 +59,6 @@ $(document).ready(function() {
     function answerSelection() {
         timeLeft = 20;
         counter = setInterval(timer,1000)
-        $('.answerChoices').click(function () {
-            userGuess = $(this).data('userGuess');
-            rightAnswer = questions[currentQuestion].rightAnswer;
-            if (userGuess === rightAnswer) {
-                $('.gameBox').html('<div id="correctIncorrectHeader">Correct!</div>');
-                $('.gameBox').append(questions[currentQuestion].legend).addClass('question');
-                $('.gameBox').append(questions[currentQuestion].image);
-                resetTimer();
-                correctAnswers++;
-                currentQuestion++;
-                setTimeout(displayNext,6500);
-            } else {
-                $('.gameBox').html('<div id="correctIncorrectHeader">Wrong!</div>')
-                $('.gameBox').append(questions[currentQuestion].legend).addClass('question');
-                $('.gameBox').append(questions[currentQuestion].image);
-                resetTimer();
-                wrongAnswers++;
-                currentQuestion++;
-                setTimeout(displayNext,6500);
-            }
-        });
         }
 
 
