@@ -1,4 +1,5 @@
 body {
+    background-color: #151515;
     background-image: url("../images/fidlar_amanda_fotes.jpg");
     background-size: 75%;
     background-repeat: no-repeat;
@@ -13,3 +14,58 @@ h1 {
     -webkit-text-shadow: 0 0 2px #000;
 }
 
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    max-width: 25%;
+}
+
+.card{
+    background-color: rgba(90, 90, 90, .9);
+    color: whitesmoke;
+    width:50%;
+    margin: 0 auto;
+    margin-bottom: 1em;
+}
+
+iframe{
+    height: 150px;
+    width: 300px;
+}
+
+.answer-choices{
+    width: 75%;
+    margin: 0 auto;
+
+}
+
+.button-group{
+    margin-top: 1em;
+    margin-bottom: 1em;
+    display: flex;
+    justify-content: center;
+}
+
+.btn-lg{
+    background-color: rgba(50, 50, 50, .6);
+    font-size: 15px;
+}
+
+footer{
+    background-color: #151515;
+    color: whitesmoke;
+    width: 100%;
+    position: absolute;
+    bottom: 0 auto;
+    text-align: center;
+    font-family: 'Audiowide', cursive;
+    font-size: 10px;
+    font-weight: 100;
+}
+
+p{
+    margin: 0 auto;
+}
