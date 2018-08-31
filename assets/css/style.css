@@ -54,6 +54,10 @@ iframe{
     font-size: 15px;
 }
 
+.hide{
+    display: none;
+}
+
 footer{
     background-color: #151515;
     color: whitesmoke;

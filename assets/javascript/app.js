@@ -6,22 +6,31 @@ let triviaQs =   [
         questionNum: "1",
         question: "Origially from Denton, TX, this band now calls Brooklyn home. Name that band!",
         answer: "Parquet Courts",
-        answerChoices: ["Ty Segall", "Jeff the Brotherhood", "Parquet Courts", "Meatwave"],
-        // video: <iframe src="https://www.youtube.com/embed/eZXS8Jpkiac?rel=0&amp;showinfo=0&amp;start=23&amp;end=35"></iframe>
+        choice1: "Ty Segall",
+        choice2: "Jeff the Brotherhood",
+        choice3: "Parquet Courts",
+        choice4:  "Meatwave",
+        video: "https://www.youtube.com/embed/eZXS8Jpkiac?rel=0&amp;showinfo=0&amp;start=23&amp;end=35"
         },
         {
         questionNum: "2",
         question: "This super-group hails from many different countries across the world, and is fronted by 18 year old Orono Noguchi. Name that band!",
         answer: "Superorganism",
-        answerChoices: ["Orono Noguchi and the Mothers", "Catpower", "The Ton Tons", "Superorganism"],
-        // video: <iframe src="https://www.youtube.com/embed/mJQYRzAoErc?rel=0&amp;showinfo=0&amp;start=73&amp;end=90"></iframe>
+        choice1: "Orono Noguchi and the Mothers", 
+        choice2:"Catpower", 
+        choice3: "The Ton Tons", 
+        choice4: "Superorganism",
+        video: "https://www.youtube.com/embed/mJQYRzAoErc?rel=0&amp;showinfo=0&amp;start=73&amp;end=90"
         },
         {
         questionNum: "3",
         question: "An Austin original, this band works with to Burger Records to produce their post-punk tunes. Name that band!",
         answer: "Hundred Visions",
-        answerChoices: ["Hundred Visions", "The Meatbodies", "Thee Oh Sees", "King Gizzard and the Lizard Wizard"],
-        // video: <iframe src="https://www.youtube.com/embed/roGpWlNUD_E?rel=0&amp;showinfo=0&amp;start=49&amp;end=60"></iframe>
+        choice1: "Hundred Visions", 
+        choice2:"The Meatbodies", 
+        choice3:"Thee Oh Sees", 
+        choice4:"King Gizzard and the Lizard Wizard",
+        video: "https://www.youtube.com/embed/roGpWlNUD_E?rel=0&amp;showinfo=0&amp;start=49&amp;end=60"
         }
     ];
     
@@ -33,48 +42,52 @@ let triviaQs =   [
     let incorrect = 0;
     let timeLeft = 20;
 
+    $('.answers').addClass('hide');
+    $('.qDisplay').addClass('hide');
+    $('.card').addClass('hide');
+    $('.musicVideo').addClass('hide');
 
-    // start timer function
-    function answerSelection() {
-        timeLeft = 20;
-        counter = setInterval(timer,1000)
-        }
 
-    // 'start' button function
+    // ___________________________________________________OLD CODE_______________________ END TAG FOR DOC.READY STILL AT TE BOTTOM OF PAGE ___________________________ //
+    //game begin
     $('.start').on('click', function() {
         gameInit = true;
+        $('.answers').removeClass('hide');
+        $('.qDisplay').removeClass('hide');
+        $('.card').removeClass('hide');
+        $('.musicVideo').removeClass('hide');
+    
+        // start timer function
+        function answerSelection() {
+            timeLeft = 20;
+            counter = setInterval(timer,1000)
+            };
 
+        // update music video
+        $('.musicVideo').attr('src', triviaQs[number].video);
 
-        // function to loop through the object and display the question on the DOM
-        function display () {
-            for( let i = 0; i < triviaQs.length; i++ ){
-                $('.qDisplay').html(triviaQs[number].question);
-                number++; 
-                return; // gives questions based on "number" which begins at index 0
-            }
-        }
-        display ();
-        $('.start').text("Next Question");           
-
-
-        }); // ENDS Start Button()
-
-    }); //ENDS doc.ready()
-
-
-        // triviaQs.forEach( function (answerChoices) {
-        //     let btnOpt = $('<button>');
-        //     btnOpt.addClass ("btn btn-secondary btn-lg btn-block");
-
-    // display questions - for loop going up by one referencing the key of the object append value to dom
-        // keep track of if the question has come up
-        // button to move to the next question
-        // on page load show first question 
-
-    // next question function - call timer function
-        // when answer choice selected stop timer - take value of answer and feed back into js check if equal to value
-        // console log the clicks (timer has started, timer has stopped, answer choice)
+        // show questions & answers
+        $('.qDisplay').html(triviaQs[number].question);
+        $('.choice1').html(triviaQs[number].choice1);
+        $('.choice2').html(triviaQs[number].choice2);
+        $('.choice3').html(triviaQs[number].choice3);
+        $('.choice4').html(triviaQs[number].choice4);
+        
+        // updates text on button to next question
+        $('.start').text("Next Question");  
+        
+        // increases the question number value by one (starts at zero)
+        number++;
+    
+    });
+    
 
     // check timer function
+// ----------YOUR CODE HERE ------------ //
 
     // reset function
+// ----------YOUR CODE HERE ------------ //
+
+
+
+}); //ENDS doc.ready()
