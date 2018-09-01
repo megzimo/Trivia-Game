@@ -42,13 +42,14 @@ let triviaQs =   [
     let incorrect = 0;
     let timeLeft = 20;
 
+    // adjusting what becomes visible upon page load
     $('.answers').addClass('hide');
     $('.qDisplay').addClass('hide');
     $('.card').addClass('hide');
     $('.musicVideo').addClass('hide');
+    $('.stats').addClass('hide');
 
-
-    // ___________________________________________________OLD CODE_______________________ END TAG FOR DOC.READY STILL AT TE BOTTOM OF PAGE ___________________________ //
+     
     //game begin
     $('.start').on('click', function() {
         gameInit = true;
@@ -56,13 +57,8 @@ let triviaQs =   [
         $('.qDisplay').removeClass('hide');
         $('.card').removeClass('hide');
         $('.musicVideo').removeClass('hide');
-    
-        // start timer function
-        function answerSelection() {
-            timeLeft = 20;
-            counter = setInterval(timer,1000)
-            };
-
+        $('.stats').removeClass('hide');
+   
         // update music video
         $('.musicVideo').attr('src', triviaQs[number].video);
 
@@ -79,7 +75,38 @@ let triviaQs =   [
         // increases the question number value by one (starts at zero)
         number++;
     
+     // start timer function
+        console.log("game started? ", gameInit);
+        let timerId = setInterval(countdown, 1000);
+
+        function countdown() {
+            if (timeLeft == -1) {
+                clearTimeout(timerId);
+                outOfTime();
+            } else {
+                $('.timer').html("Time Remaining: " + timeLeft + ' seconds');
+                timeLeft--;
+            }
+        }
+        
+        function outOfTime() {
+            $('.timer').html("You ran out of time!!");
+        }
+
     });
+
+   
+    // function answerSelection() {
+        // if(gameInit === true){
+        //     console.log("time left: ", timeLeft);
+        //     // clockRunning = true;
+        //     timeLeft = 20;
+        //     intervalId = setInterval(timeLeft,1000);
+        //     timeLeft--;
+        //     $('.timer').html(timeLeft);
+        //     };
+        // };
+
     
 
     // check timer function
