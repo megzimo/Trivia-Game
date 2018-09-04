@@ -38,9 +38,10 @@ let triviaQs =   [
     // create variables
     let gameInit = false;
     let number = 0; // counts question
-    let correct = 0;
+    var correct = 0;
     let incorrect = 0;
     let timeLeft = 20;
+    let qRemaining = 3;
 
     // adjusting what becomes visible upon page load
     $('.answers').addClass('hide');
@@ -59,6 +60,7 @@ let triviaQs =   [
         $('.musicVideo').removeClass('hide');
         $('.stats').removeClass('hide');
         $('.intro').addClass('hide');
+        $('.qLeft').html("Questions Remaining: " + qRemaining);
    
         // update music video
         $('.musicVideo').attr('src', triviaQs[number].video);
@@ -72,9 +74,6 @@ let triviaQs =   [
         
         // updates text on button to next question
         $('.start').text("Next Question");  
-        
-        // increases the question number value by one (starts at zero)
-        number++;
     
      // start timer function
         console.log("game started? ", gameInit);
@@ -98,19 +97,29 @@ let triviaQs =   [
             console.log(e);
             if(timeLeft > 0 ){
                 let answerChoice = (e.target.innerText);
-            console.log("answer choice inner text: ", e.target.innerText);
+            console.log("answer choice: ", answerChoice);
+            console.log("trivia q answer: ", triviaQs[number].answer)
+            console.log("number: ", number);
+
+                function checkAnswer() {
+                    if(answerChoice === triviaQs[number].answer){
+                        correct++;
+                        console.log("trivia q answer: ", triviaQs[number].answer)
+                        $('.correct').html("Correct: " + correct++ ) 
+                    }
+                    else { 
+                        incorrect++;
+                        $('.incorrect').html("Incorrect: up by one" + incorrect++ )
+                    }
+                }
+                checkAnswer(e);
             }
         });
-
-        function checkAnswer() {
-            if(answerChoice === answer[number]){
-            console.log(answerChoice)
-                $('.correct').html("correct: ", correct++) }
-                else { $('.incorrect').html("incorrect: ", incorrect++)
-                }
-        }
-
     });
+                    
+    // increases the question number value by one (starts at zero)
+    number++;
+
 
 // Replay button
     $('.replay').on('click', function() {
