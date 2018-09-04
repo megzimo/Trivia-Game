@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC|Covered+By+Your+Grace|Gloria+Hallelujah|Shadows+Into+Light');
+
 body {
     background-color: #151515;
     background-image: url("../images/fidlar_amanda_fotes.jpg");
@@ -8,10 +10,12 @@ body {
 
 h1 {
     color: rgb(245, 245, 245);
+    width: 400px;
     text-align: center;
     text-shadow: 0 0 2px #000; /* horizontal-offset vertical-offset 'blur' colour */
     -moz-text-shadow: 0 0 2px #000;
     -webkit-text-shadow: 0 0 2px #000;
+    font-family: 'Shadows Into Light', cursive;
 }
 
 .container{
@@ -20,7 +24,7 @@ h1 {
     justify-content: center;
     margin-top: 2em;
     margin-bottom: 2em;
-    max-width: 25%;
+    font-family: 'Shadows Into Light', cursive;
 }
 
 .card{
@@ -36,12 +40,6 @@ iframe{
     width: 300px;
 }
 
-.answer-choices{
-    width: 75%;
-    margin: 0 auto;
-
-}
-
 .button-group{
     margin-top: 1em;
     margin-bottom: 1em;
@@ -52,8 +50,16 @@ iframe{
 .btn-lg{
     background-color: rgba(50, 50, 50, .6);
     font-size: 15px;
-    width: 50%;
-    
+    width: 30%;
+    margin: 0 auto;
+}
+
+.intro{
+    color: rgb(49, 253, 151);
+    font-weight: 500;
+    background-color: rgba(90, 90, 90, .5);
+    padding: .9em;
+    width: 500px;
 }
 
 .hide{
@@ -65,7 +71,7 @@ footer{
     color: whitesmoke;
     width: 100%;
     position: absolute;
-    bottom: 0;
+    bottom: 0 auto;
     text-align: center;
     font-family: 'Audiowide', cursive;
     font-size: 10px;

@@ -58,6 +58,7 @@ let triviaQs =   [
         $('.card').removeClass('hide');
         $('.musicVideo').removeClass('hide');
         $('.stats').removeClass('hide');
+        $('.intro').addClass('hide');
    
         // update music video
         $('.musicVideo').attr('src', triviaQs[number].video);
@@ -78,34 +79,45 @@ let triviaQs =   [
      // start timer function
         console.log("game started? ", gameInit);
         let timerId = setInterval(countdown, 1000);
-
         function countdown() {
             if (timeLeft == -1) {
                 clearTimeout(timerId);
                 outOfTime();
+                gameInit === false;
             } else {
                 $('.timer').html("Time Remaining: " + timeLeft + ' seconds');
                 timeLeft--;
             }
-        }
-        
+        };
         function outOfTime() {
             $('.timer').html("You ran out of time!!");
         }
 
+    // check if answer chosen is equal to correct answer
+        $('.ans-btn').on('click', function (e){
+            console.log(e);
+            if(timeLeft > 0 ){
+                let answerChoice = (e.target.innerText);
+            console.log("answer choice inner text: ", e.target.innerText);
+            }
+        });
+
+        function checkAnswer() {
+            if(answerChoice === answer[number]){
+            console.log(answerChoice)
+                $('.correct').html("correct: ", correct++) }
+                else { $('.incorrect').html("incorrect: ", incorrect++)
+                }
+        }
+
+    });
+
+// Replay button
+    $('.replay').on('click', function() {
+
     });
 
    
-    // function answerSelection() {
-        // if(gameInit === true){
-        //     console.log("time left: ", timeLeft);
-        //     // clockRunning = true;
-        //     timeLeft = 20;
-        //     intervalId = setInterval(timeLeft,1000);
-        //     timeLeft--;
-        //     $('.timer').html(timeLeft);
-        //     };
-        // };
 
     
 
