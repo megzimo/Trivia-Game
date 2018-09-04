@@ -60,8 +60,8 @@ let triviaQs =   [
     let number = 0; // counts question
     var correct = 0;
     let incorrect = 0;
-    let timeLeft = 20;
     let qRemaining = 5;
+    let timerId;
 
     // adjusting what becomes visible upon page load
     $('.answers').addClass('hide');
@@ -98,26 +98,32 @@ let triviaQs =   [
     showQnA ();
      // start timer function
         console.log("game started? ", gameInit);
-        // let timerId = setInterval(countdown, 1000);
-        // function countdown() {
-        //     if (timeLeft == -1) {
-        //         clearTimeout(timerId);
-        //         outOfTime();
-        //         gameInit === false;
-        //     } else {
-        //         $('.timer').html("Time Remaining: " + timeLeft + ' seconds');
-        //         timeLeft--;
-        //     }
-        // };
-        // function outOfTime() {
-        //     $('.timer').html("You ran out of time!!");
-        // }
+        function timer() {
+            let timeLeft = 20;
+            timerId = setInterval(countdown, 1000);
+            function countdown() {
+                if (timeLeft == 0 ) {
+                    clearTimeout(timerId);
+                    outOfTime();
+                    gameInit === false;
+                    console.log("game init??? ", gameInit)
+                } else {
+                    $('.timer').html("Time Remaining: " + timeLeft + ' seconds');
+                    timeLeft--;
+                }
+            }
+        };
+        timer();
+        function outOfTime() {
+            $('.timer').html("You ran out of time!!");
+        }
 
     // check if answer chosen is equal to correct answer
         $('.ans-btn').on('click', function (e){
-            // console.log(e);
+            console.log(e);
             console.log("number: ", number);
         // reset timer
+        clearInterval(timerId);
             let answerChoice = (e.target.innerText);
             console.log("answer choice: ", answerChoice);
             console.log("trivia q answer: ", triviaQs[number].answer)
@@ -138,6 +144,7 @@ let triviaQs =   [
         $('.next').on('click', function (){
             number++;
             showQnA();
+            timer();
         });
     });
 
