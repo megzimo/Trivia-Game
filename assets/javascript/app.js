@@ -169,6 +169,9 @@ $(document).ready(function() {
         console.log("number: ", number);
         console.log("trivia Q length: ", triviaQs.length);
       number++;
+      console.log("Q Remaining: ", qRemaining);
+      qRemaining--;
+      $(".qLeft").html("Questions Remaining: " + qRemaining);
       showQnA();
       timer();
     });
