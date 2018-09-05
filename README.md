@@ -1,10 +1,6 @@
 # Trivia-Game
 
-This game gives players 15 seconds to listen to song clips and correctly guess the band the song was performed by.
-
-Upon answer choice, the correct choice will be revealed before moving on to the next question. If you run out of time, the gamme will automatically end, so be sure to make a choice before time runs out, even if you're not 100% sure.
-
-<br>
+This game gives players 20 seconds to watch and listen to each music video and correctly guess the band the song was performed by. The game will keep track of incorrect and correct guesses while displaying the number of questions remaining and the time left.
 
 Technology used in this project:
 _________________________________________________________________________________________________________________________
