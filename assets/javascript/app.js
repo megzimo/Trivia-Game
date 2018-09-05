@@ -11,7 +11,7 @@ $(document).ready(function() {
       choice3: "Parquet Courts",
       choice4: "Meatwave",
       video:
-        "https://www.youtube.com/embed/eZXS8Jpkiac?rel=0&amp;showinfo=0&amp;start=23&amp;end=35"
+        "https://www.youtube.com/embed/eZXS8Jpkiac?rel=0&amp;showinfo=0&amp;start=23&amp;end=35&autoplay=1"
     },
     {
       questionNum: "2",
@@ -23,7 +23,7 @@ $(document).ready(function() {
       choice3: "The Ton Tons",
       choice4: "Superorganism",
       video:
-        "https://www.youtube.com/embed/mJQYRzAoErc?rel=0&amp;showinfo=0&amp;start=73&amp;end=90"
+        "https://www.youtube.com/embed/NM52w9xrdn4?rel=0&amp;showinfo=0&amp;start=53&amp;end=73&autoplay=1"
     },
     {
       questionNum: "3",
@@ -35,7 +35,7 @@ $(document).ready(function() {
       choice3: "Thee Oh Sees",
       choice4: "King Gizzard and the Lizard Wizard",
       video:
-        "https://www.youtube.com/embed/roGpWlNUD_E?rel=0&amp;showinfo=0&amp;start=49&amp;end=60"
+        "https://www.youtube.com/embed/roGpWlNUD_E?rel=0&amp;showinfo=0&amp;start=49&amp;end=60&autoplay=1"
     },
     {
       questionNum: "4",
@@ -47,7 +47,7 @@ $(document).ready(function() {
       choice3: "Interpol",
       choice4: "Cloud Nothings",
       video:
-        "https://www.youtube.com/embed/74TP8QhupLU?rel=0&amp;showinfo=0&amp;start=49&amp;end=60"
+        "https://www.youtube.com/embed/SX9qxzbAu6E?rel=0&amp;showinfo=0&amp;start=215&amp;end=235&autoplay=1"
     },
     {
       questionNum: "5",
@@ -59,7 +59,7 @@ $(document).ready(function() {
       choice3: "Ceu",
       choice4: "Strunz and Farah",
       video:
-        "https://www.youtube.com/embed/l-qgum7hFXk?rel=0&amp;showinfo=0&amp;start=49&amp;end=60"
+        "https://www.youtube.com/embed//wKd0HNg1kFQ?rel=0&amp;showinfo=0&amp;start=130&amp;end=150&autoplay=1"
     }
   ];
 
@@ -123,6 +123,7 @@ $(document).ready(function() {
     timer();
     function outOfTime() {
       $(".timer").html("You ran out of time!!");
+      $('.ans-btn').addClass('disabled');
     }
 
     // check if answer chosen is equal to correct answer
@@ -136,8 +137,19 @@ $(document).ready(function() {
       checkAnswer(answerChoice);
 
       if(answerChoice){
-            $('.ans-btn').addClass('disabled');
+        $('.ans-btn').addClass('disabled');
       }
+     // end of game
+    if(number === triviaQs.length-1){
+        $('.intro').removeClass("hide");
+        $(".qDisplay").addClass("hide");
+        $(".choice1").addClass("hide")
+        $(".choice2").addClass("hide")
+        $(".choice3").addClass("hide")
+        $(".choice4").addClass("hide")
+        $(".musicVideo").addClass("hide")
+        $('.intro').text("You've finished! You answered " + correct  + " correct out of 5!")
+    }
     });
 
     // compares clicked answer string to answer choice
@@ -154,15 +166,35 @@ $(document).ready(function() {
     // attributes of next button that reset timer, updates question/answers and updates question number
     $(".next").on("click", function() {
         $('.ans-btn').removeClass('disabled');
+        console.log("number: ", number);
+        console.log("trivia Q length: ", triviaQs.length);
       number++;
       showQnA();
       timer();
     });
+    
+  }); //end of start-on click function
+
+    // Replay button
+  $(".replay").on("click", function() {
+    let gameInit = false;
+    let number = 0; // counts question
+    var correct = 0;
+    let incorrect = 0;
+    let qRemaining = 5;
+    let timerId;
+  
+    // adjusting what becomes visible upon page load
+    $(".answers").addClass("hide");
+    $(".qDisplay").addClass("hide");
+    $(".card").addClass("hide");
+    $(".musicVideo").addClass("hide"); 
+    $(".musicVideo").removeAttr("src", triviaQs[number].video); // removes video and prevents music from playing upon reset
+    $(".stats").addClass("hide");
+    $(".next").addClass("hide");
+    $(".intro").removeClass("hide");
+    $(".start").removeClass("hide");
   });
 
-  // Replay button
-  $(".replay").on("click", function() {});
 }); //ENDS doc.ready()
 
-// SCORE TRACKER //
-// if all the way through the array (while less than array length) update instruction container with score % triggers end of game

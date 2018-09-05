@@ -5,7 +5,8 @@ body {
     background-image: url("../images/fidlar_amanda_fotes.jpg");
     background-size: 75%;
     background-repeat: no-repeat;
-    background-position-x: center
+    background-position-x: center;
+    width: 95%;
 }
 
 h1 {
@@ -13,9 +14,15 @@ h1 {
     width: 400px;
     text-align: center;
     text-shadow: 0 0 2px #000; /* horizontal-offset vertical-offset 'blur' colour */
-    -moz-text-shadow: 0 0 2px #000;
-    -webkit-text-shadow: 0 0 2px #000;
+    -moz-text-shadow: 0 0 5px #000;
+    -webkit-text-shadow: 0 0 5px #000;
     font-family: 'Shadows Into Light', cursive;
+}
+
+strong{
+    text-shadow: 0 0 15px #000;
+    font-size: 55px; 
+    color: rgb(139, 255, 197);
 }
 
 .container{
@@ -30,9 +37,10 @@ h1 {
 .card{
     background-color: rgba(90, 90, 90, .9);
     color: whitesmoke;
-    width:50%;
+    width: 55%;
     margin: 0 auto;
     margin-bottom: 1em;
+    font-size: 18px;
 }
 
 iframe{
@@ -48,34 +56,28 @@ iframe{
 }
 
 .btn-lg{
-    background-color: rgba(50, 50, 50, .6);
+    background-color: rgba(50, 50, 50, .7);
     font-size: 15px;
-    width: 30%;
+    width: 85%;
     margin: 0 auto;
+    font-weight: 600;
+}
+
+.ans-choices{
+    display: flex;
+    justify-content: space-between;
 }
 
 .intro{
     color: rgb(49, 253, 151);
     font-weight: 500;
-    background-color: rgba(90, 90, 90, .5);
+    background-color: rgba(59, 58, 58, 0.8);
     padding: .9em;
-    width: 500px;
+    width: 700px;
 }
 
 .hide{
     display: none;
-}
-
-footer{
-    background-color: #151515;
-    color: whitesmoke;
-    width: 100%;
-    position: absolute;
-    bottom: 0 auto;
-    text-align: center;
-    font-family: 'Audiowide', cursive;
-    font-size: 10px;
-    font-weight: 100;
 }
 
 p{
@@ -83,7 +85,7 @@ p{
 }
 
 .stats{
-    width: 155px;
+    width: 225px;
     height: auto;
     background-color: #151515;
     position: fixed;
@@ -94,6 +96,12 @@ p{
 li{
     font-family: Arial, Helvetica, sans-serif;
     background-color: #151515;
-    font-size: 10px;
+    font-size: 13px;
+    list-style: none;
+    padding: 8px;
 
+}
+
+.answers{
+    margin: 3em;
 }
